@@ -7,7 +7,7 @@ workflows:
         APP_IDENTIFIER: "com.yourcompany.yourapp"       # استبدل باسم الباكيج الخاص بتطبيقك
         IOS_DEVELOPMENT_TEAM: "22"           # استبدل بالـ Team ID من حساب Apple Developer
       node: stable
-      ruby: latest
+      ruby: 3.2.2
       cocoapods: default
     scripts:
       - name: Install dependencies
