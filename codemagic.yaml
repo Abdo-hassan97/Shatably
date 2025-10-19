@@ -4,8 +4,8 @@ workflows:
     max_build_duration: 60
     environment:
       vars:
-        APP_IDENTIFIER: "com.yourcompany.yourapp"       # استبدل باسم الباكيج الخاص بتطبيقك
-        IOS_DEVELOPMENT_TEAM: "22"           # استبدل بالـ Team ID من حساب Apple Developer
+        APP_IDENTIFIER: "com.yourcompany.shatably"
+        IOS_DEVELOPMENT_TEAM: "YOUR_TEAM_ID"
       node: stable
       ruby: 3.2.2
       cocoapods: default
@@ -13,11 +13,10 @@ workflows:
       - name: Install dependencies
         script: |
           npm install
-          npx pod-install ios
       - name: Build iOS app
         script: |
           cd ios
-          xcodebuild -workspace Shatably.xcworkspace -scheme Shatably -configuration Release -allowProvisioningUpdates
+          xcodebuild -project Shatably.xcodeproj -scheme Shatably -configuration Release -destination 'generic/platform=iOS' -allowProvisioningUpdates
     artifacts:
       - ios/build/**/*.app
       - ios/build/**/*.ipa
